@@ -1,0 +1,18 @@
+# docker-compose.yml
+version: "3.7"
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: "yourdbname"        
+      POSTGRES_USER: "youruser"        
+      POSTGRES_PASSWORD: "yourpassword" 
+    ports:
+      - "5432:5432"
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
